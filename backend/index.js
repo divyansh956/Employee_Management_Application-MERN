@@ -6,11 +6,12 @@ const app = express();
 var cors = require("cors");
 const PORT = process.env.PORT || 4000;
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+const corsOptions = {
+    origin: ['https://employee-management-application.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    crendentials: true
+};
+app.use(cors(corsOptions));
 // Middleware
 app.use(express.json());
 
